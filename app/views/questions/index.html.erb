@@ -1,0 +1,25 @@
+<table class="table table-hover">
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td>
+          <%= question.value_qm %>
+        </td>
+        <td>
+          <%= question.field.name %>
+        </td>
+        <td>
+          <div class="btn-group" role="group">
+            <button id="actionsBtn" type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Actions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="actionsBtn">
+              <a class="dropdown-item" href="#">Dropdown link</a>
+              <a class="dropdown-item" href="#">Dropdown link</a>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
