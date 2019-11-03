@@ -3,18 +3,16 @@
     <% @questions.each do |question| %>
       <tr>
         <td>
-          <%= question.value_qm %>
-        </td>
-        <td>
-          <%= question.field.name %>
+          <p><%= question.value_qm %></p>
+          <p class="text-black-50 my-0"><%= question.field.name %></p>
         </td>
         <td>
           <div class="btn-group" role="group">
-            <button id="actionsBtn" type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button id="actionsBtn" type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle mt-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Actions
             </button>
             <div class="dropdown-menu" aria-labelledby="actionsBtn">
-              <a class="dropdown-item" href="#">Dropdown link</a>
+              <%= link_to 'Delete', question_path(question), class: "dropdown-item", method: :delete %>
               <a class="dropdown-item" href="#">Dropdown link</a>
             </div>
           </div>

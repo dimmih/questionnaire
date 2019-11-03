@@ -9,6 +9,7 @@ RSpec.describe Field, type: :model do
 
 	describe "Validations" do
 		it { expect(field).to validate_presence_of(:name) }
+		it { expect(field).to validate_uniqueness_of(:name) }
   end
   
   describe "Associations" do
