@@ -1,8 +1,18 @@
+<%= link_to 'Add Question', new_question_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'}  %>
+
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+
 <table class="table table-hover">
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td>
+        <td class=<%= question.difficulty %>>
           <p><%= question.value_qm %></p>
           <p class="text-black-50 my-0"><%= question.field.name %></p>
         </td>
@@ -13,7 +23,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="actionsBtn">
               <%= link_to 'Delete', question_path(question), class: "dropdown-item", method: :delete %>
-              <a class="dropdown-item" href="#">Dropdown link</a>
+              <%= link_to 'Edit', edit_question_path(question), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'dropdown-item'}  %>
             </div>
           </div>
         </td>
