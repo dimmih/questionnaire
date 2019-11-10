@@ -1,12 +1,11 @@
 <%= link_to 'Add Question', new_question_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'}  %>
-
+<%= link_to 'Generate question group', new_question_group_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'}  %>
 
 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content"></div>
   </div>
 </div>
-
 
 <table class="table table-hover">
   <tbody>

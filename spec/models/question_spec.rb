@@ -15,5 +15,6 @@ RSpec.describe Question, type: :model do
   
   describe "Associations" do
     it { expect(question).to belong_to(:field) }
+    it { expect(question).to have_and_belong_to_many(:question_groups) }
   end
 end
