@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}    % provides circles and boxes
+\usepackage{enumitem}   % easy control of topsep and left margin for lists
+\usepackage{forloop}    % used for \Qrating and \Qlines
+\usepackage{ifthen}     % used for \Qitem and \QItem
+
+\usepackage{typearea}
+\areaset{17cm}{26cm}
+\setlength{\topmargin}{-1cm}
+
+
+% *************************************************** %
+% ********************* COMMANDS ******************** %
+% *************************************************** %
+
+%% \Qq = Question. It helps making it easy to globally change the appearance of questions.
+\newcommand{\Qq}[1]{\textbf{#1}}
+
+%% \Qc = Circle to be ticked. Used in \Qanswers
+\newcommand{\Qc}{$\ocircle$}
+
+%% \Qb = Box to be ticked. Used in \Qyesno
+\newcommand{\Qb}{$\Box$}
+
+%% \Qline = Helps setting the line thickness globally.
+%% Used both by direct call and by \Qlines.
+\newcommand{\Qline}[1]{\noindent\rule{#1}{0.6pt}}
+
+%% \Qlines = Insert NUM lines with width=\linewith.
+\newcounter{ql}
+\newcommand{\Qlines}[1]{\forloop{ql}{0}{\value{ql}<#1}{\vskip0em\Qline{\linewidth}}}
+
+%% \Qanswers = This is an environment very similar to itemize but with
+%% \Qc in front of each list item. Useful for classical multiple
+%% choice.
+\newenvironment{Qanswers}{%
+\renewcommand{\labelitemi}{\Qc}
+\begin{itemize}[leftmargin=1.5em,topsep=-.5em]
+}{%
+\end{itemize}
+}
+
+%% \Qyesno = Simiral to \Qanswers but with \Qb in fron of each list item.
+%% It's used for yes no questions.
+\newcommand{\Qyesno}{
+\renewcommand{\labelitemi}{\Qb}
+\begin{itemize}[leftmargin=4.5em,topsep=-.5em]
+\item Yes
+\item No
+\end{itemize}
+}
+
+%% \Qitem = Item with automatic numbering. The first optional argument
+%% can be used to create sub-items like 2a, 2b, 2c, ... The item
+%% number is increased if the first argument is omitted or equals 'a'.
+%% You will have to adjust this if you prefer a different numbering
+%% scheme.
+\newcounter{itemnummer}
+\newcommand{\Qitem}[2][]{% #1 optional, #2 notwendig
+\ifthenelse{\equal{#1}{}}{\stepcounter{itemnummer}}{}
+\ifthenelse{\equal{#1}{a}}{\stepcounter{itemnummer}}{}
+\begin{enumerate}[topsep=2pt,leftmargin=2.8em]
+\item[\textbf{\arabic{itemnummer}#1.}] #2
+\end{enumerate}
+}
+
+% *************************************************** %
+% ********************* COMMANDS END **************** %
+% *************************************************** %
+
+\begin{document}
+  <%= yield %>
+\end{document}

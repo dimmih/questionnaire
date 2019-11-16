@@ -1,8 +1,8 @@
 <%= form_for @question_group do |f| %>
   <div class="row">
     <div class="form-group col-6">
-      <%= f.label :file_name %>
-      <%= f.text_field :name, id: :value, class: :value, class: "form-control form-control-sm" %>
+      <%= f.label :title %>
+      <%= f.text_field :name, class: "form-control form-control-sm" %>
     </div>
     <div class="form-group col-6">
       <%= f.label :field %>
@@ -10,17 +10,23 @@
     </div>
   </div>
   <div class="row">
+    <div class="form-group col-12">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control form-control-sm", rows: 5 %>
+    </div>
+  </div>
+  <div class="row">
     <div class="form-group col-4">
       <%= f.label :how_many_easy_questions %>
-      <%= f.number_field :easy, in: 1..10, class: "form-control form-control-sm" %>
+      <%= f.number_field :easy, in: 1..15, class: "form-control form-control-sm" %>
     </div>
     <div class="form-group col-4">
       <%= f.label :how_many_medium_questions %>
-      <%= f.number_field :medium, in: 1..10, class: "form-control form-control-sm" %>
+      <%= f.number_field :medium, in: 1..15, class: "form-control form-control-sm" %>
     </div>
     <div class="form-group col-4">
       <%= f.label :how_many_hard_questions %>
-      <%= f.number_field :hard, in: 1..10, class: "form-control form-control-sm" %>
+      <%= f.number_field :hard, in: 1..15, class: "form-control form-control-sm" %>
     </div>
   </div>
 

@@ -1,4 +1,10 @@
 class QuestionGroupsController < ApplicationController
+  def show
+    @question_group = QuestionGroup.find(params[:id])
+    
+    render formats: :pdf
+  end
+  
   def new
     @question_group = QuestionGroup.new
 
@@ -11,8 +17,12 @@ class QuestionGroupsController < ApplicationController
   def create
     @question_group = QuestionGroup.new(question_group_params)
 
-    @question_group.save
-    redirect_to questions_path
+    if @question_group.save
+      redirect_to question_group_path(@question_group)
+    else
+      flash[:error] = @question_group.errors[:base].to_sentence
+      redirect_to questions_path
+    end
   end
 
   private
