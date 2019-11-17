@@ -8,9 +8,9 @@
 
 <% @question_group.questions.each do |question| %>
   <% if question.text? %>
-    \Qitem{\Qq{<%= "[#{question.id}] #{question.value_qm}" %>} \Qlines{3}}
+    \Qitem{\Qq{<%= question.value_qm %>} \Qlines{3}}
   <% elsif question.yes_no? %>
-    \Qitem{\Qq{<%= "[#{question.id}] #{question.value_qm}" %>}}
+    \Qitem{\Qq{<%= question.value_qm %>}}
     \Qyesno
   <% else %>
     \Qitem{\Qq{<%= question.value_qm %>}}

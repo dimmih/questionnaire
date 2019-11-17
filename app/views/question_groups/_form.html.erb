@@ -2,7 +2,7 @@
   <div class="row">
     <div class="form-group col-6">
       <%= f.label :title %>
-      <%= f.text_field :name, class: "form-control form-control-sm" %>
+      <%= f.text_field :name, class: "form-control form-control-sm", required: true %>
     </div>
     <div class="form-group col-6">
       <%= f.label :field %>
@@ -18,15 +18,15 @@
   <div class="row">
     <div class="form-group col-4">
       <%= f.label :how_many_easy_questions %>
-      <%= f.number_field :easy, in: 1..15, class: "form-control form-control-sm" %>
+      <%= f.number_field :easy, in: 0..15, value: 0, class: "form-control form-control-sm", required: true %>
     </div>
     <div class="form-group col-4">
       <%= f.label :how_many_medium_questions %>
-      <%= f.number_field :medium, in: 1..15, class: "form-control form-control-sm" %>
+      <%= f.number_field :medium, in: 0..15, value: 0, class: "form-control form-control-sm", required: true %>
     </div>
     <div class="form-group col-4">
       <%= f.label :how_many_hard_questions %>
-      <%= f.number_field :hard, in: 1..15, class: "form-control form-control-sm" %>
+      <%= f.number_field :hard, in: 0..15, value: 0, class: "form-control form-control-sm", required: true %>
     </div>
   </div>
 

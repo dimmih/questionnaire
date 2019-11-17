@@ -13,7 +13,7 @@
       <tr>
         <td class=<%= question.difficulty %>>
           <p><%= question.value_qm %></p>
-          <p class="text-black-50 my-0"><%= question.field.name %></p>
+          <p class="text-black-50 my-0"><%= "#{question.field.name} - #{question.kind.humanize} question" %></p>
         </td>
         <td>
           <div class="btn-group" role="group">
@@ -30,3 +30,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="d-flex justify-content-center">
+  <%= will_paginate @questions %>
+</div>

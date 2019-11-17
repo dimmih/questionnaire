@@ -1,6 +1,6 @@
 class QuestionGroupsController < ApplicationController
   def show
-    @question_group = QuestionGroup.find(params[:id])
+    @question_group = QuestionGroup.friendly.find(params[:id])
     
     render formats: :pdf
   end

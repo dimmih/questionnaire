@@ -38,6 +38,12 @@ gem 'rails-latex'
 # Used for database population
 gem 'faker'
 
+# Used for pagination
+gem 'will_paginate', '~> 3.1.0'
+
+# Used for prettier URLs
+gem 'friendly_id', '~> 5.2.4'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

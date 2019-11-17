@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: :destroy
   
   def index
-    @questions = Question.order("id DESC")
+    @questions = Question.includes(:field).order("id DESC").paginate(page: params[:page], per_page: 20)
   end
 
   def new

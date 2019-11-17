@@ -2,12 +2,15 @@ class QuestionGroup < ApplicationRecord
   belongs_to :field
   has_and_belongs_to_many :questions
 
-  validates :name, presence: true
+  validates :name, :easy, :medium, :hard, presence: true
   validate :valid_easy_max_size
   validate :valid_medium_max_size
   validate :valid_hard_max_size
 
   before_create :generate_questions
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   private
 
