@@ -1,5 +1,7 @@
-<%= link_to 'Add Question', new_question_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'}  %>
-<%= link_to 'Generate question group', new_question_group_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'}  %>
+<div class="mb-3">
+  <%= link_to 'Add Question', new_question_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'} %>
+  <%= link_to 'Generate questionnaire', new_question_group_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-secondary float-right'} %>
+</div>
 
 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

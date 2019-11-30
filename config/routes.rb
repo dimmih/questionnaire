@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :questions
-  resources :question_groups, only: [:show, :new, :create]
+  resources :question_groups
   
   root to: 'questions#index'
 end
