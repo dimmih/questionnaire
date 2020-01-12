@@ -7,15 +7,10 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def create
-    @question = Question.new(quesiton_params)
+    @question = Question.new(question_params)
     if @question.save
       flash[:success] = 'New question added.'
     else
@@ -27,17 +22,12 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def update
     @question = Question.find(params[:id])
 
-    if @question.update(quesiton_params)
+    if @question.update(question_params)
       flash[:success] = 'Question updated.'
     else
       flash[:error] = 'There was something wrong!'
@@ -62,7 +52,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def quesiton_params
-    params.require(:question).permit(:value, :difficulty, :kind, :field_id)
+  def question_params
+    params.require(:question).permit(:value, :difficulty, :kind, :field_id, answers_attributes: [:id, :value, :correct, :_destroy] )
   end
 end

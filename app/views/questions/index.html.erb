@@ -1,5 +1,6 @@
 <div class="mb-3">
-  <%= link_to 'Add Question', new_question_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'} %>
+  <%= link_to 'Add Question', new_question_path, class: 'btn btn-sm btn-secondary' %>
+  <%= link_to 'Add Field', new_field_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-sm btn-secondary'} %>
   <%= link_to 'Generate questionnaire', new_question_group_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-secondary float-right'} %>
 </div>
 
@@ -24,7 +25,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="actionsBtn">
               <%= link_to 'Delete', question_path(question), class: "dropdown-item", method: :delete %>
-              <%= link_to 'Edit', edit_question_path(question), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'dropdown-item'}  %>
+              <%= link_to 'Edit', edit_question_path(question), class: 'dropdown-item'  %>
             </div>
           </div>
         </td>

@@ -16,5 +16,16 @@
     <%= f.collection_select :field_id, Field.all, :id, :name, {}, { class: "form-control" } %>
   </div>
 
+  <div class="answers mb-5">
+    <label>Answers</label>
+    <%= f.fields_for :answers do |answer| %>
+        <%= render 'answer_fields', f: answer %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'Add answer', f, :answers %>
+    </div>
+  </div>
+
   <%= f.submit "Submit", class: "btn btn-secondary" %>
 <% end %>

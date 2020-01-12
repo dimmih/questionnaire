@@ -1,0 +1,14 @@
+<div class="form-group nested-fields">
+  <%= f.fields_for :answers do |answer| %>
+    <div class="form-row align-items-center">
+      <div class="col-10">
+        <%= f.text_field :value, class: "form-control" %>
+      </div>
+      <div class="col">
+        <%= f.check_box :correct %>
+        <%= f.label :correct, "Correct answer" %>
+        <%= link_to_remove_association "remove answer", f %>
+      </div>
+    </div>
+  <% end %>
+</div>

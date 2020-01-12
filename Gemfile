@@ -44,6 +44,9 @@ gem 'will_paginate', '~> 3.1.0'
 # Used for prettier URLs
 gem 'friendly_id', '~> 5.2.4'
 
+# Used for dynamic nested forms
+gem "cocoon"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

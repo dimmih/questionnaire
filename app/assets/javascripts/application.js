@@ -18,6 +18,7 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require toastr
+//= require cocoon
 //= require_tree .
 
 // Toastr options
@@ -36,4 +37,13 @@ $(document).ready(function() {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
   }
+
+  $("#question_kind").change(function(){
+    var kind = $("#question_kind option:selected").val();
+    if (kind == 'multiple_choice') {
+      $('.answers').show();
+    } else {
+      $('.answers').hide();
+    }
+  });
 });
