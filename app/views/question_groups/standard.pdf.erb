@@ -7,17 +7,14 @@
 \noindent \textit{<%= @question_group.description %>}\\\\
 
 <% @question_group.questions.each do |question| %>
-  <% if question.text? %>
+  <% if question.open_question? %>
     \Qitem{\Qq{<%= question.value_qm %>} \Qlines{3}}
-  <% elsif question.yes_no? %>
-    \Qitem{\Qq{<%= question.value_qm %>}}
-    \Qyesno
-  <% else %>
+  <% elsif question.multiple_choice? %>
     \Qitem{\Qq{<%= question.value_qm %>}}
     \begin{Qanswers}
-    \item Lorem ipsum dolor sit amet.
-    \item Something about sport or medicine.
-    \item I dont know what to write.
-    \end
+      <% question.answers.each do |answer| %>
+        \item <%= answer.value %>
+      <% end %>
+    \end{Qanswers}
   <% end %>
 <% end %>

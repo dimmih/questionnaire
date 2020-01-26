@@ -1,0 +1,18 @@
+% Title
+\begin{center}
+\textbf{\huge <%= @question_group.name %>}
+\end{center}\vskip1em
+
+% Description
+\noindent \textit{<%= @question_group.description %>}\\\\
+
+<% @question_group.questions.each do |question| %>
+  \Qitem{\Qq{<%= question.value_qm %>}}
+  <% if question.answers.correct.present? %>
+    \begin{itemize}[leftmargin=4.5em]
+      <% question.answers.correct.each do |correct_answer| %>
+        \item <%= correct_answer.value %>
+      <% end %>
+    \end{itemize}
+  <% end %>
+<% end %>

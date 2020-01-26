@@ -1,43 +1,18 @@
-<% @question_groups.in_groups_of(3) do |question_g1, question_g2, question_g3| %>
-  <div class="card-deck my-4">
-    <div class="card" >
+<div class="">
+  <% @question_groups.each do |question_group| %>
+    <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title"><%= question_g1.name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= question_g1.created_at.strftime("%d %b %Y") %></h6>
-        <p class="card-text"><%= question_g1.description.truncate(27) unless question_g1.description.nil? %></p>
+        <h5 class="card-title"><%= question_group.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= question_group.created_at.strftime("%d %b %Y") %></h6>
+        <p class="card-text"><%= question_group.description.truncate(27) unless question_group.description.nil? %></p>
       </div>
       <div class="card-footer bg-transparent border-0">
-        <%= link_to "Pdf #1", question_group_path(question_g1), target: "_blank" %>
+        <%= link_to "Standard PDF", standard_question_group_path(question_group), target: "_blank" %>
+        <%= link_to "PDF With correct answers", correct_answers_question_group_path(question_group), target: "_blank" %>
       </div>
     </div> <!-- First card -->
-    
-    <% if question_g2 %>
-      <div class="card" >
-        <div class="card-body">
-          <h5 class="card-title"><%= question_g2.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= question_g2.created_at.strftime("%d %b %Y") %></h6>
-          <p class="card-text"><%= question_g2.description.truncate(140) unless question_g2.description.nil? %></p>
-        </div>
-        <div class="card-footer bg-transparent border-0">
-          <%= link_to "Pdf #1", question_group_path(question_g2), target: "_blank" %>
-        </div>
-      </div> <!-- Second card -->
-    <% end %>
-
-    <% unless question_g3.nil? %>
-      <div class="card" >
-        <div class="card-body">
-          <h5 class="card-title"><%= question_g3.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= question_g3.created_at.strftime("%d %b %Y") %></h6>
-          <p class="card-text"><%= question_g3.description.truncate(140) unless question_g3.description.nil? %></p>
-        </div>
-        <div class="card-footer bg-transparent border-0">
-          <%= link_to "Pdf #1", question_group_path(question_g3), target: "_blank" %>
-        </div>
-      </div> <!-- Third card -->
-    <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <div class="d-flex justify-content-center">
   <%= will_paginate @question_groups %>

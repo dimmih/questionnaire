@@ -16,14 +16,25 @@
     <%= f.collection_select :field_id, Field.all, :id, :name, {}, { class: "form-control" } %>
   </div>
 
-  <div class="answers mb-5">
-    <label>Answers</label>
-    <%= f.fields_for :answers do |answer| %>
-        <%= render 'answer_fields', f: answer %>
-    <% end %>
+  <div class="mb-5">
+    <div class="multiple-choice-answers">
+      <label>Answers</label>
+      <%= f.fields_for :answers do |answer| %>
+          <%= render 'answer_fields', f: answer %>
+      <% end %>
 
-    <div class="links">
-      <%= link_to_add_association 'Add answer', f, :answers %>
+      <div class="links">
+        <%= link_to_add_association 'Add answer', f, :answers %>
+      </div>
+    </div>
+    <div class="open-question-answer" style="display: none;">
+      <label>Correct answer</label>
+      <%= f.fields_for :answers do |answer| %>
+        <div class="form-row align-items-center">
+          <%= answer.text_field :value, class: "form-control" %>
+          <%= answer.check_box :correct, checked: true, style: "display: none;" %>
+        </div>
+      <% end %>
     </div>
   </div>
 

@@ -33,11 +33,11 @@
 \newcommand{\Qlines}[1]{\forloop{ql}{0}{\value{ql}<#1}{\vskip0em\Qline{\linewidth}}}
 
 %% \Qanswers = This is an environment very similar to itemize but with
-%% \Qc in front of each list item. Useful for classical multiple
+%% \Qb in front of each list item. Useful for classical multiple
 %% choice.
 \newenvironment{Qanswers}{%
-\renewcommand{\labelitemi}{\Qc}
-\begin{itemize}[leftmargin=1.5em,topsep=-.5em]
+\renewcommand{\labelitemi}{\Qb}
+\begin{itemize}[leftmargin=4.5em,topsep=-.5em]
 }{%
 \end{itemize}
 }

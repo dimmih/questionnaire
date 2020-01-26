@@ -5,32 +5,74 @@ require 'faker'
 sport = Field.create(name: "Sport")
 philosophy = Field.create(name: "Philosophy")
 
-### Answers
-answers =  []
-15.times do
-  answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: [true, false].sample)
+### Easy - Sport
+5.times do
+  correct_answer = Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: sport, kind: :open_question, answers: [correct_answer]) 
+end
+5.times do
+  answers = []
+  5.times { answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: [true, false].sample) }
+  answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: sport, kind: :multiple_choice, answers: answers)
 end
 
-### Easy - Sport
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: sport, kind: :open_question) }
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: sport, kind: :multiple_choice, answers: answers.sample(3)) }
-
 ### Medium - Sport
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: sport, kind: :open_question) }
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: sport, kind: :multiple_choice, answers: answers.sample(3)) }
+5.times do
+  correct_answer = Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: sport, kind: :open_question, answers: [correct_answer])
+end
+5.times do
+  answers = []
+  5.times { answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: [true, false].sample) }
+  answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: sport, kind: :multiple_choice, answers: answers)
+end
 
 ### Hard - Sport
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: sport, kind: :open_question) }
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: sport, kind: :multiple_choice, answers: answers.sample(3)) }
+5.times do
+  correct_answer = Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: sport, kind: :open_question, answers: [correct_answer])
+end
+5.times do
+  answers = []
+  5.times { answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: [true, false].sample) }
+  answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: sport, kind: :multiple_choice, answers: answers)
+end
 
 ### Easy - Philosophy
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: philosophy, kind: :open_question) }
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: philosophy, kind: :multiple_choice, answers: answers.sample(3)) }
+5.times do
+  correct_answer = Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: philosophy, kind: :open_question, answers: [correct_answer])
+end
+5.times do
+  answers = []
+  5.times { answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: [true, false].sample) }
+  answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :easy, field: philosophy, kind: :multiple_choice, answers: answers)
+end
 
 ### Medium - Philosophy
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: philosophy, kind: :open_question) }
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: philosophy, kind: :multiple_choice, answers: answers.sample(3)) }
+5.times do
+  correct_answer = Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: philosophy, kind: :open_question, answers: [correct_answer])
+end
+5.times do
+  answers = []
+  5.times { answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: [true, false].sample) }
+  answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :medium, field: philosophy, kind: :multiple_choice, answers: answers)
+end
 
 ### Hard - Philosophy
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: philosophy, kind: :open_question) }
-5.times { Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: philosophy, kind: :multiple_choice, answers: answers.sample(3)) }
+5.times do
+  correct_answer = Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: philosophy, kind: :open_question, answers: [correct_answer])
+end
+5.times do
+  answers = []
+  5.times { answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: [true, false].sample) }
+  answers << Answer.new(value: Faker::Lorem.sentence.delete("."), correct: true)
+  Question.create(value: Faker::Lorem.sentence.delete("."), difficulty: :hard, field: philosophy, kind: :multiple_choice, answers: answers)
+end

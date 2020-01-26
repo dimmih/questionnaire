@@ -19,15 +19,7 @@
           <p class="text-black-50 my-0"><%= "#{question.field.name} - #{question.kind.humanize} question" %></p>
         </td>
         <td>
-          <div class="btn-group" role="group">
-            <button id="actionsBtn" type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle mt-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Actions
-            </button>
-            <div class="dropdown-menu" aria-labelledby="actionsBtn">
-              <%= link_to 'Delete', question_path(question), class: "dropdown-item", method: :delete %>
-              <%= link_to 'Edit', edit_question_path(question), class: 'dropdown-item'  %>
-            </div>
-          </div>
+        <%= link_to 'Delete', question_path(question), class: "btn btn-sm btn-outline-danger", method: :delete %>
         </td>
       </tr>
     <% end %>

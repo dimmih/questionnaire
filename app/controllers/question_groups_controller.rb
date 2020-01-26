@@ -3,10 +3,16 @@ class QuestionGroupsController < ApplicationController
     @question_groups = QuestionGroup.paginate(page: params[:page], per_page: 9)
   end
   
-  def show
+  def standard
     @question_group = QuestionGroup.friendly.find(params[:id])
     
-    render formats: :pdf
+    render formats: :pdf, layout: "application"
+  end
+
+  def correct_answers
+    @question_group = QuestionGroup.friendly.find(params[:id])
+
+    render formats: :pdf, layout: "application"
   end
   
   def new

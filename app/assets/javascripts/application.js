@@ -22,7 +22,7 @@
 //= require_tree .
 
 // Toastr options
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   toastr.options = {
     "closeButton": true,
     "debug": false,
@@ -41,9 +41,11 @@ $(document).ready(function() {
   $("#question_kind").change(function(){
     var kind = $("#question_kind option:selected").val();
     if (kind == 'multiple_choice') {
-      $('.answers').show();
-    } else {
-      $('.answers').hide();
+      $('.multiple-choice-answers').show();
+      $('.open-question-answer').hide();
+    } else if(kind == 'open_question') {
+      $('.multiple-choice-answers').hide();
+      $('.open-question-answer').show();
     }
   });
 });
