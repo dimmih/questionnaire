@@ -6,13 +6,13 @@ class QuestionGroupsController < ApplicationController
   def standard
     @question_group = QuestionGroup.friendly.find(params[:id])
     
-    render formats: :pdf, layout: "application"
+    render layout: "application", formats: [:pdf] 
   end
 
   def correct_answers
     @question_group = QuestionGroup.friendly.find(params[:id])
 
-    render formats: :pdf, layout: "application"
+    render layout: "application", formats: [:pdf]
   end
   
   def new
