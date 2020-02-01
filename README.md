@@ -21,7 +21,7 @@ Once you have installed all [prerequisites](#installation)
 
 ```bash
 # Checkout the project
-$ git clone path/to/this/repo
+$ git clone https://github.com/dimmih/questionnaire.git
 $ cd questionnaire
 
 # Install the program dependencies
